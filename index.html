@@ -59,9 +59,13 @@
 
         #birthdayScene {
             opacity: 0;
-            transition: opacity 1.5s ease-in-out;
+            transition: opacity 1.5s ease-in-out, transform 1.5s cubic-bezier(0.6, 0.04, 0.98, 0.34);
+            transform-origin: center top;
         }
         #birthdayScene.visible { opacity: 1; }
+        #birthdayScene.shrunk {
+            transform: scale(0.4) translateY(-130%);
+        }
         
         #birthdayMessage h1 {
             animation: textGlow 3s infinite alternate;
@@ -231,12 +235,50 @@
             animation-fill-mode: forwards;
             animation-iteration-count: infinite;
             animation-direction: alternate;
+            cursor: pointer;
+            pointer-events: all;
+            transition: transform 0.5s ease, opacity 0.5s ease;
+        }
+        .photo-card.zoomed {
+            top: 50% !important;
+            left: 50% !important;
+            transform: translate(-50%, -50%) scale(2.5) !important;
+            animation-play-state: paused !important;
+            z-index: 101;
+            opacity: 1 !important;
         }
         .photo-card img {
             width: 150px;
             height: 150px;
             border-radius: 50%;
             object-fit: cover;
+        }
+        
+        body.photo-view .photo-card:not(.zoomed) {
+            opacity: 0.2 !important;
+            animation-play-state: paused !important;
+        }
+        body.photo-view-active .photo-card:not(.zoomed) {
+            animation-play-state: running !important;
+             opacity: 0.8 !important;
+        }
+
+
+        #photo-overlay {
+            position: fixed;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.5s ease;
+            z-index: 100;
+        }
+        #photo-overlay.visible {
+            opacity: 1;
+            pointer-events: all;
         }
 
         @keyframes float-photo-1 {
@@ -298,6 +340,7 @@
         </div>
     </div>
     
+    <div id="photo-overlay"></div>
     <div id="messagesContainer"></div>
     <div id="photosContainer"></div>
     <div id="fireworksContainer"></div>
@@ -308,6 +351,7 @@
         const fireworksContainer = document.getElementById('fireworksContainer');
         const messagesContainer = document.getElementById('messagesContainer');
         const photosContainer = document.getElementById('photosContainer');
+        const photoOverlay = document.getElementById('photo-overlay');
         
         const canvas = document.getElementById('background-canvas');
         const ctx = canvas.getContext('2d');
@@ -372,10 +416,13 @@
                 setTimeout(() => birthdayScene.classList.add('visible'), 50);
                 
                 const balloonDuration = 15000;
+                const photoStartTime = balloonDuration + 2000;
+
                 setTimeout(() => startFloatingMessages(balloonDuration), 2000);
                 setTimeout(() => startFireworks(12000), 4500);
 
-                setTimeout(startFloatingPhotos, balloonDuration + 2000);
+                setTimeout(startFloatingPhotos, photoStartTime);
+                setTimeout(transitionToPhotoView, photoStartTime + 5000);
 
             }, 500);
         });
@@ -455,6 +502,11 @@
             };
         }
 
+        function transitionToPhotoView() {
+            birthdayScene.classList.add('shrunk');
+            document.body.classList.add('photo-view-active');
+        }
+
         function startFloatingPhotos() {
             const photoNames = ['erits1.jfif', 'erits2.jfif', 'erits3.jfif', 'erits4.jfif', 'erits5.jfif'];
             const animationNames = ['float-photo-1', 'float-photo-2', 'float-photo-3', 'float-photo-4'];
@@ -474,6 +526,14 @@
                 photoCard.appendChild(img);
                 photosContainer.appendChild(photoCard);
 
+                photoCard.addEventListener('click', () => {
+                    if (document.querySelector('.photo-card.zoomed')) return;
+                    photoOverlay.classList.add('visible');
+                    photoCard.classList.add('zoomed');
+                    document.body.classList.add('photo-view');
+                     document.body.classList.remove('photo-view-active');
+                });
+
                 photoCard.style.top = `${10 + Math.random() * 70}%`;
                 photoCard.style.left = `${10 + Math.random() * 70}%`;
                 
@@ -487,6 +547,16 @@
                 photoCard.style.animationTimingFunction = 'ease-out, ease-in-out';
             });
         }
+
+        photoOverlay.addEventListener('click', () => {
+            const zoomedPhoto = document.querySelector('.photo-card.zoomed');
+            if (zoomedPhoto) {
+                zoomedPhoto.classList.remove('zoomed');
+                photoOverlay.classList.remove('visible');
+                document.body.classList.remove('photo-view');
+                document.body.classList.add('photo-view-active');
+            }
+        });
 
         let particles = [];
         
@@ -576,3 +646,4 @@
     </script>
 </body>
 </html>
+
