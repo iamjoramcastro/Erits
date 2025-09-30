@@ -13,10 +13,8 @@
             --glow-color: #f8c471;
             --button-glow: #f063a4;
         }
-
         .font-great-vibes { font-family: 'Great Vibes', cursive; }
         body { font-family: 'Poppins', sans-serif; overflow: hidden; }
-
         #background-canvas {
             position: fixed;
             top: 0; left: 0;
@@ -31,7 +29,6 @@
             50% { background-position: 100% 50%; }
             100% { background-position: 0% 50%; }
         }
-
         #surpriseButton {
             background: rgba(255, 255, 255, 0.1);
             border: 1px solid rgba(255, 255, 255, 0.2);
@@ -56,7 +53,6 @@
             opacity: 0;
             transition: all 0.5s cubic-bezier(0.68, -0.55, 0.27, 1.55);
         }
-
         #birthdayScene {
             opacity: 0;
             transition: opacity 1.5s ease-in-out, transform 1.5s cubic-bezier(0.6, 0.04, 0.98, 0.34);
@@ -67,7 +63,6 @@
         #birthdayScene.shrunk {
             transform: scale(0.4) translateY(-130%);
         }
-        
         #birthdayMessage h1 {
             animation: textGlow 3s infinite alternate;
         }
@@ -83,7 +78,6 @@
             from { text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px var(--glow-color), 0 0 40px var(--glow-color); }
             to { text-shadow: 0 0 20px #fff, 0 0 30px var(--glow-color), 0 0 40px var(--glow-color), 0 0 50px var(--glow-color); }
         }
-
         .cake {
             position: relative;
             width: 250px; height: 200px;
@@ -107,7 +101,6 @@
         .top { top: 0; background-image: radial-gradient(circle at 50% 0, #f78fb3, #e74c3c); z-index: 3; animation-delay: 1.0s; }
         .middle { top: 33.33%; background-image: radial-gradient(circle at 50% 0, #7dc0f5, #3498db); z-index: 2; animation-delay: 1.5s; }
         .bottom { top: 66.66%; background-image: radial-gradient(circle at 50% 0, #73dfa2, #2ecc71); z-index: 1; animation-delay: 2.0s; }
-        
         .icing {
             position: absolute;
             top: 15%; left: 2.5%;
@@ -123,7 +116,6 @@
         @keyframes riseUp {
             to { transform: translateY(0); opacity: 1; }
         }
-
         .candle {
             position: absolute;
             width: 12px; height: 45px;
@@ -137,12 +129,10 @@
         .candle:nth-child(1) { left: 20%; animation-delay: 3.0s; }
         .candle:nth-child(2) { left: 45%; top: -40px; animation-delay: 3.2s; }
         .candle:nth-child(3) { left: 70%; animation-delay: 3.4s; }
-
         @keyframes growIn {
             from { transform: scaleY(0); opacity: 0; }
             to { transform: scaleY(1); opacity: 1; }
         }
-
         .flame {
             position: absolute;
             width: 12px; height: 25px;
@@ -160,14 +150,12 @@
             0%, 100% { box-shadow: 0 0 10px #f1c40f, 0 0 20px #f1c40f, 0 0 5px #e74c3c; }
             50% { box-shadow: 0 0 15px #f1c40f, 0 0 25px #f1c40f, 0 0 10px #e74c3c; }
         }
-
         #messagesContainer {
             position: fixed; top: 0; left: 0;
             width: 100%; height: 100%;
             pointer-events: none;
             z-index: 10; overflow: hidden;
         }
-
         .balloon-container {
             position: absolute;
             bottom: -200px;
@@ -193,7 +181,6 @@
             filter: blur(5px);
         }
         .rope { width: 1px; height: 60px; background-color: #fff5; }
-        
         .message-card {
             background: rgba(255, 255, 255, 0.1);
             border-radius: 10px;
@@ -204,17 +191,14 @@
             box-shadow: 0 4px 15px rgba(0,0,0,0.2);
             white-space: nowrap;
         }
-
         .message-text {
             color: white;
             text-shadow: 0 0 5px #000, 0 0 10px var(--button-glow);
             font-size: 1.5rem;
         }
-
         @keyframes floatUp {
             to { transform: translateY(-120vh) rotate(10deg); }
         }
-        
         #photosContainer {
             position: fixed;
             top: 0; left: 0;
@@ -237,10 +221,7 @@
             cursor: pointer;
             pointer-events: all;
             transition: transform 0.5s ease, opacity 0.5s ease;
-            backdrop-filter: blur(2px);
-            -webkit-backdrop-filter: blur(2px);
         }
-
         .photo-card.zoomed {
             top: 50% !important;
             left: 50% !important;
@@ -248,8 +229,6 @@
             animation-play-state: paused !important;
             z-index: 101;
             opacity: 1 !important;
-            backdrop-filter: none !important;
-            -webkit-backdrop-filter: none !important;
         }
         .photo-card img {
             width: 150px;
@@ -257,7 +236,6 @@
             border-radius: 50%;
             object-fit: cover;
         }
-        
         body.photo-view .photo-card:not(.zoomed) {
             opacity: 0.2 !important;
             animation-play-state: paused !important;
@@ -266,7 +244,6 @@
             animation-play-state: running !important;
              opacity: 0.8 !important;
         }
-
         #photo-overlay {
             position: fixed;
             top: 0; left: 0;
@@ -283,7 +260,6 @@
             opacity: 1;
             pointer-events: all;
         }
-
         @keyframes float-photo-1 {
             0% { transform: translate(0, 0) rotate(0deg) scale(1); }
             100% { transform: translate(40vw, -30vh) rotate(10deg) scale(1.1); }
@@ -303,7 +279,6 @@
         @keyframes fadeInPhoto {
              to { opacity: 0.8; transform: scale(1); }
         }
-
         #fireworksContainer {
             position: fixed; top: 0; left: 0;
             width: 100%; height: 100%;
@@ -314,22 +289,18 @@
             border-radius: 50%;
             opacity: 1;
         }
-
     </style>
 </head>
 <body class="text-white flex items-center justify-center min-h-screen">
     <canvas id="background-canvas"></canvas>
-
     <button id="surpriseButton" class="text-white font-bold text-2xl py-6 px-12 rounded-full z-50">
         Hello, Erits! A surprise awaits...
     </button>
-
     <div id="birthdayScene" class="absolute inset-0 flex-col items-center justify-center" style="display: none;">
         <div id="birthdayMessage" class="text-center mb-16 z-20">
             <h1 class="font-great-vibes text-8xl md:text-9xl text-yellow-300">Happy Birthday</h1>
             <p class="text-5xl md:text-6xl mt-4 font-bold text-white drop-shadow-[0_2px_5px_rgba(0,0,0,0.5)]">Langga!</p>
         </div>
-
         <div class="cake z-20">
             <div class="icing"></div>
             <div class="layer top"></div>
@@ -342,12 +313,10 @@
             </div>
         </div>
     </div>
-    
     <div id="photo-overlay"></div>
     <div id="messagesContainer"></div>
     <div id="photosContainer"></div>
     <div id="fireworksContainer"></div>
-
     <script>
         const surpriseButton = document.getElementById('surpriseButton');
         const birthdayScene = document.getElementById('birthdayScene');
@@ -355,13 +324,11 @@
         const messagesContainer = document.getElementById('messagesContainer');
         const photosContainer = document.getElementById('photosContainer');
         const photoOverlay = document.getElementById('photo-overlay');
-        
         const canvas = document.getElementById('background-canvas');
         const ctx = canvas.getContext('2d');
         canvas.width = window.innerWidth;
         canvas.height = window.innerHeight;
         let stars = [];
-
         function createStars() {
             stars = [];
             for (let i = 0; i < 200; i++) {
@@ -375,7 +342,6 @@
                 });
             }
         }
-
         function drawStars() {
             ctx.clearRect(0, 0, canvas.width, canvas.height);
             ctx.fillStyle = 'rgba(255, 255, 255, 0.8)';
@@ -384,16 +350,13 @@
                 ctx.globalAlpha = star.alpha;
                 ctx.arc(star.x, star.y, star.radius, 0, Math.PI * 2);
                 ctx.fill();
-
                 star.x += star.vx;
                 star.y += star.vy;
-
                 if (star.x < 0 || star.x > canvas.width) star.vx = -star.vx;
                 if (star.y < 0 || star.y > canvas.height) star.vy = -star.vy;
             });
             requestAnimationFrame(drawStars);
         }
-
         createStars();
         drawStars();
         window.addEventListener('resize', () => {
@@ -401,7 +364,6 @@
             canvas.height = window.innerHeight;
             createStars();
         });
-
         const upliftingMessages = [
             "Happy birthday, Erits!", "Shine Bright!", "Dream Big!", "Amping pirmi!",
             "Wishing You Joy!", "I'm one chat away!", "Amazing Year Ahead!",
@@ -410,65 +372,47 @@
             "Always be positive!", "Dili mag sad2x!", "Be happy!", "Blossom!"
         ];
         const balloonColors = ['#e74c3c', '#3498db', '#2ecc71', '#f1c40f', '#9b59b6', '#e67e22', '#1abc9c'];
-        
         surpriseButton.addEventListener('click', () => {
             surpriseButton.classList.add('clicked');
-            
             setTimeout(() => {
                 birthdayScene.style.display = 'flex';
                 setTimeout(() => birthdayScene.classList.add('visible'), 50);
-                
                 const balloonDuration = 15000;
-
                 setTimeout(() => startFloatingMessages(balloonDuration), 2000);
                 setTimeout(() => startFireworks(12000), 4500);
-
                 setTimeout(startFloatingPhotos, 2000);
                 setTimeout(transitionToPhotoView, balloonDuration + 2000);
-
             }, 500);
         });
-
         function startFloatingMessages(duration) {
             const interval = setInterval(() => {
                 createFloatingMessage();
             }, 1800);
             setTimeout(() => clearInterval(interval), duration);
         }
-
         function createFloatingMessage() {
             const container = document.createElement('div');
             container.className = 'balloon-container';
             container.style.left = `${Math.random() * 90}%`;
-            
             const swayDuration = Math.random() * 4 + 4;
             container.style.animation = `floatUp ${Math.random() * 8 + 15}s ease-in forwards`;
-
             const balloon = document.createElement('div');
             balloon.className = 'balloon';
             balloon.style.backgroundColor = balloonColors[Math.floor(Math.random() * balloonColors.length)];
-
             const rope = document.createElement('div');
             rope.className = 'rope';
-            
             const messageCard = document.createElement('div');
             messageCard.className = 'message-card';
-            
             const messageEl = document.createElement('div');
             messageEl.className = 'message-text font-great-vibes';
             messageEl.textContent = upliftingMessages[Math.floor(Math.random() * upliftingMessages.length)];
-
             messageCard.appendChild(messageEl);
             container.append(balloon, rope, messageCard);
-            
             container.addEventListener('click', () => {
                 popBalloon(container);
             });
-            
             messagesContainer.appendChild(container);
-
             setTimeout(() => container.remove(), 25000);
-
             const swayAnimationName = `sway-${Math.random().toString(36).substr(2, 9)}`;
             const swayX = (Math.random() * 100 + 50) * (Math.random() < 0.5 ? 1 : -1);
             const styleSheet = document.styleSheets[0];
@@ -484,15 +428,12 @@
                  container.style.animationTimingFunction = 'ease-in, ease-in-out';
                  container.style.animationDirection = 'normal, alternate';
                  container.style.animationIterationCount = '1, infinite';
-
             } catch(e) { console.error(e); }
         }
-        
         function popBalloon(balloonContainer) {
             balloonContainer.style.pointerEvents = 'none';
             const rect = balloonContainer.querySelector('.balloon').getBoundingClientRect();
             explode(rect.left + rect.width / 2, rect.top + rect.height / 2, 30, 2);
-            
             balloonContainer.animate([
                 { transform: balloonContainer.style.transform + ' scale(1)', opacity: 1 },
                 { transform: balloonContainer.style.transform + ' scale(1.2)', opacity: 0 }
@@ -503,20 +444,16 @@
                 balloonContainer.remove();
             };
         }
-
         function transitionToPhotoView() {
             birthdayScene.classList.add('shrunk');
             document.body.classList.add('photo-view-active');
         }
-
         function startFloatingPhotos() {
             const photoNames = ['erits1.jfif', 'erits2.jfif', 'erits3.jfif', 'erits4.jfif', 'erits5.jfif'];
             const animationNames = ['float-photo-1', 'float-photo-2', 'float-photo-3', 'float-photo-4'];
-            
             photoNames.forEach((name, i) => {
                 const photoCard = document.createElement('div');
                 photoCard.className = 'photo-card';
-
                 const img = document.createElement('img');
                 img.src = `images/${name}`;
                 img.alt = "A lovely picture of Erits";
@@ -524,10 +461,8 @@
                     photoCard.style.display = 'none';
                     console.error(`Could not load image: images/${name}`);
                 };
-
                 photoCard.appendChild(img);
                 photosContainer.appendChild(photoCard);
-
                 photoCard.addEventListener('click', () => {
                     if (document.querySelector('.photo-card.zoomed')) return;
                     photoOverlay.classList.add('visible');
@@ -535,21 +470,17 @@
                     document.body.classList.add('photo-view');
                      document.body.classList.remove('photo-view-active');
                 });
-
                 photoCard.style.top = `${10 + Math.random() * 70}%`;
                 photoCard.style.left = `${10 + Math.random() * 70}%`;
-                
                 const floatAnimation = animationNames[i % animationNames.length];
                 const floatDuration = 20 + Math.random() * 15;
                 const fadeInDelay = i * 1.5;
-                
                 photoCard.style.animationName = `fadeInPhoto, ${floatAnimation}`;
                 photoCard.style.animationDuration = `1.5s, ${floatDuration}s`;
                 photoCard.style.animationDelay = `${fadeInDelay}s, ${fadeInDelay + 1.5}s`;
                 photoCard.style.animationTimingFunction = 'ease-out, ease-in-out';
             });
         }
-
         photoOverlay.addEventListener('click', () => {
             const zoomedPhoto = document.querySelector('.photo-card.zoomed');
             if (zoomedPhoto) {
@@ -559,9 +490,7 @@
                 document.body.classList.add('photo-view-active');
             }
         });
-
         let particles = [];
-        
         function startFireworks(duration) {
             const interval = setInterval(() => createFirework(), 400 + Math.random() * 300);
             setTimeout(() => clearInterval(interval), duration);
@@ -570,13 +499,11 @@
             }
         }
         let animationFrameId = null;
-
         function createFirework() {
             const startX = window.innerWidth * (0.2 + Math.random() * 0.6);
             const startY = window.innerHeight;
             const endY = window.innerHeight * (0.1 + Math.random() * 0.4);
             const hue = Math.random() * 360;
-
             const rocket = {
                 x: startX, y: startY,
                 vx: Math.random() * 2 - 1, vy: -(Math.random() * 3 + 4),
@@ -584,7 +511,6 @@
             };
             particles.push(rocket);
         }
-
         function explode(x, y, count = 100, speed = 5) {
             const hue = Math.random() * 360;
             for (let i = 0; i < count; i++) {
@@ -601,21 +527,17 @@
                 });
             }
         }
-        
         function updateParticles() {
             fireworksContainer.innerHTML = '';
             let i = particles.length;
             while(i--) {
                 const p = particles[i];
                 if (!p) continue;
-
                 p.x += p.vx;
                 p.y += p.vy;
-
                 const el = document.createElement('div');
                 el.className = 'particle';
                 el.style.transform = `translate(${p.x}px, ${p.y}px)`;
-                
                 if (p.isParticle) {
                     p.vy += p.gravity;
                     p.vx *= p.drag;
@@ -636,9 +558,7 @@
                         p.lifespan = 0;
                     }
                 }
-                
                 fireworksContainer.appendChild(el);
-
                 if (p.lifespan <= 0) {
                     particles.splice(i, 1);
                 }
@@ -648,3 +568,4 @@
     </script>
 </body>
 </html>
+
