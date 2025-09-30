@@ -220,15 +220,13 @@
             top: 0; left: 0;
             width: 100%; height: 100%;
             pointer-events: none;
-            z-index: 5;
+            z-index: 11;
         }
         .photo-card {
             position: absolute;
             padding: 8px;
             background: rgba(255, 255, 255, 0.15);
             border-radius: 50%;
-            backdrop-filter: blur(5px);
-            -webkit-backdrop-filter: blur(5px);
             border: 1px solid rgba(255, 255, 255, 0.2);
             box-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
             opacity: 0;
@@ -239,6 +237,10 @@
             cursor: pointer;
             pointer-events: all;
             transition: transform 0.5s ease, opacity 0.5s ease;
+        }
+        .photo-card:not(.zoomed) {
+            backdrop-filter: blur(5px);
+            -webkit-backdrop-filter: blur(5px);
         }
         .photo-card.zoomed {
             top: 50% !important;
@@ -419,13 +421,12 @@
                 setTimeout(() => birthdayScene.classList.add('visible'), 50);
                 
                 const balloonDuration = 15000;
-                const photoStartTime = balloonDuration + 2000;
 
                 setTimeout(() => startFloatingMessages(balloonDuration), 2000);
                 setTimeout(() => startFireworks(12000), 4500);
 
-                setTimeout(startFloatingPhotos, photoStartTime);
-                setTimeout(transitionToPhotoView, photoStartTime + 5000);
+                setTimeout(startFloatingPhotos, 2000);
+                setTimeout(transitionToPhotoView, balloonDuration + 2000);
 
             }, 500);
         });
@@ -649,3 +650,5 @@
     </script>
 </body>
 </html>
+
+
