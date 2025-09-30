@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Erit's Birthday!</title>
+    <title>A Birthday Surprise for Erits!</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -17,7 +17,6 @@
         .font-great-vibes { font-family: 'Great Vibes', cursive; }
         body { font-family: 'Poppins', sans-serif; overflow: hidden; }
 
-        /* --- ✨ Animated Background --- */
         #background-canvas {
             position: fixed;
             top: 0; left: 0;
@@ -33,7 +32,6 @@
             100% { background-position: 0% 50%; }
         }
 
-        /* --- ✨ Modern Glassmorphism Button --- */
         #surpriseButton {
             background: rgba(255, 255, 255, 0.1);
             border: 1px solid rgba(255, 255, 255, 0.2);
@@ -59,7 +57,6 @@
             transition: all 0.5s cubic-bezier(0.68, -0.55, 0.27, 1.55);
         }
 
-        /* --- ✨ Scene & Message Styling --- */
         #birthdayScene {
             opacity: 0;
             transition: opacity 1.5s ease-in-out;
@@ -159,7 +156,6 @@
             50% { box-shadow: 0 0 15px #f1c40f, 0 0 25px #f1c40f, 0 0 10px #e74c3c; }
         }
 
-
         #messagesContainer {
             position: fixed; top: 0; left: 0;
             width: 100%; height: 100%;
@@ -214,7 +210,6 @@
             to { transform: translateY(-120vh) rotate(10deg); }
         }
         
-
         #photosContainer {
             position: fixed;
             top: 0; left: 0;
@@ -244,7 +239,6 @@
             object-fit: cover;
         }
 
-
         @keyframes float-photo-1 {
             0% { transform: translate(0, 0) rotate(0deg) scale(1); }
             100% { transform: translate(40vw, -30vh) rotate(10deg) scale(1.1); }
@@ -265,8 +259,6 @@
              to { opacity: 0.8; transform: scale(1); }
         }
 
-
-        /* --- 🎆 Upgraded Fireworks --- */
         #fireworksContainer {
             position: fixed; top: 0; left: 0;
             width: 100%; height: 100%;
@@ -317,7 +309,6 @@
         const messagesContainer = document.getElementById('messagesContainer');
         const photosContainer = document.getElementById('photosContainer');
         
-        // --- ✨ Starfield Background Effect ---
         const canvas = document.getElementById('background-canvas');
         const ctx = canvas.getContext('2d');
         canvas.width = window.innerWidth;
@@ -364,8 +355,6 @@
             createStars();
         });
 
-
-        // --- 🎈 Balloon Messages ---
         const upliftingMessages = [
             "Happy birthday, Erits!", "Shine Bright!", "Dream Big!", "Amping pirmi!",
             "Wishing You Joy!", "I'm one chat away!", "Amazing Year Ahead!",
@@ -386,7 +375,6 @@
                 setTimeout(() => startFloatingMessages(balloonDuration), 2000);
                 setTimeout(() => startFireworks(12000), 4500);
 
-                // Start floating photos after the balloons are done
                 setTimeout(startFloatingPhotos, balloonDuration + 2000);
 
             }, 500);
@@ -467,7 +455,6 @@
             };
         }
 
-        // --- 🖼️ Floating Photos Logic ---
         function startFloatingPhotos() {
             const photoNames = ['erits1.jfif', 'erits2.jfif', 'erits3.jfif', 'erits4.jfif', 'erits5.jfif'];
             const animationNames = ['float-photo-1', 'float-photo-2', 'float-photo-3', 'float-photo-4'];
@@ -477,11 +464,9 @@
                 photoCard.className = 'photo-card';
 
                 const img = document.createElement('img');
-                // IMPORTANT: Make sure you have an 'images' folder with these files.
                 img.src = `images/${name}`;
                 img.alt = "A lovely picture of Erits";
                 img.onerror = () => { 
-                    // Hide the card if the image fails to load
                     photoCard.style.display = 'none';
                     console.error(`Could not load image: images/${name}`);
                 };
@@ -489,7 +474,6 @@
                 photoCard.appendChild(img);
                 photosContainer.appendChild(photoCard);
 
-                // Assign random positions and animations
                 photoCard.style.top = `${10 + Math.random() * 70}%`;
                 photoCard.style.left = `${10 + Math.random() * 70}%`;
                 
@@ -500,11 +484,10 @@
                 photoCard.style.animationName = `fadeInPhoto, ${floatAnimation}`;
                 photoCard.style.animationDuration = `1.5s, ${floatDuration}s`;
                 photoCard.style.animationDelay = `${fadeInDelay}s, ${fadeInDelay + 1.5}s`;
-                photo-card.style.animationTimingFunction = 'ease-out, ease-in-out';
+                photoCard.style.animationTimingFunction = 'ease-out, ease-in-out';
             });
         }
 
-        // --- 🎆 Fireworks Logic ---
         let particles = [];
         
         function startFireworks(duration) {
