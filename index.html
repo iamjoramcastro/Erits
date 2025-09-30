@@ -61,6 +61,7 @@
             opacity: 0;
             transition: opacity 1.5s ease-in-out, transform 1.5s cubic-bezier(0.6, 0.04, 0.98, 0.34);
             transform-origin: center top;
+            z-index: 20;
         }
         #birthdayScene.visible { opacity: 1; }
         #birthdayScene.shrunk {
@@ -246,6 +247,8 @@
             animation-play-state: paused !important;
             z-index: 101;
             opacity: 1 !important;
+            backdrop-filter: none;
+            -webkit-backdrop-filter: none;
         }
         .photo-card img {
             width: 150px;
@@ -324,7 +327,7 @@
     <div id="birthdayScene" class="absolute inset-0 flex-col items-center justify-center" style="display: none;">
         <div id="birthdayMessage" class="text-center mb-16 z-20">
             <h1 class="font-great-vibes text-8xl md:text-9xl text-yellow-300">Happy Birthday</h1>
-            <p class="text-5xl md:text-6xl mt-4 font-bold text-white drop-shadow-[0_2px_5px_rgba(0,0,0,0.5)]">Erits!</p>
+            <p class="text-5xl md:text-6xl mt-4 font-bold text-white drop-shadow-[0_2px_5px_rgba(0,0,0,0.5)]">Langga!</p>
         </div>
 
         <div class="cake z-20">
@@ -646,4 +649,3 @@
     </script>
 </body>
 </html>
-
