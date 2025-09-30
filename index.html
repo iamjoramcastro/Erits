@@ -238,10 +238,7 @@
             pointer-events: all;
             transition: transform 0.5s ease, opacity 0.5s ease;
         }
-        .photo-card:not(.zoomed) {
-            backdrop-filter: blur(5px);
-            -webkit-backdrop-filter: blur(5px);
-        }
+
         .photo-card.zoomed {
             top: 50% !important;
             left: 50% !important;
@@ -249,8 +246,6 @@
             animation-play-state: paused !important;
             z-index: 101;
             opacity: 1 !important;
-            backdrop-filter: none;
-            -webkit-backdrop-filter: none;
         }
         .photo-card img {
             width: 150px;
@@ -309,7 +304,7 @@
         #fireworksContainer {
             position: fixed; top: 0; left: 0;
             width: 100%; height: 100%;
-            pointer-events: none; z-index: 9999;
+            pointer-events: none; z-index: 4;
         }
         .particle {
             position: absolute;
@@ -650,5 +645,3 @@
     </script>
 </body>
 </html>
-
-
